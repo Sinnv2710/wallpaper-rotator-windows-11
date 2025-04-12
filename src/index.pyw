@@ -17,14 +17,20 @@ import win32process
 import json
 import threading
 
-TEMP_PATH = os.path.join("D:\\software\\script\\TEMP", "comic_wallpaper.jpg")
-os.makedirs(os.path.dirname(TEMP_PATH), exist_ok=True)  # Ensure the directory exists
+# Base path of the current script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Temporary image path
+TEMP_PATH = os.path.join(BASE_DIR, "TEMP", "comic_wallpaper.jpg")
+print(TEMP_PATH)
+os.makedirs(os.path.dirname(TEMP_PATH), exist_ok=True)
+
 auto_refresh_enabled = False
 auto_refresh_thread = None
-SETTINGS_PATH = os.path.join("D:\\software\\script\\src", "settings.json")
+SETTINGS_PATH = os.path.join(BASE_DIR,"settings.json")
 AUTO_REFRESH_INTERVAL_MINUTES = 30  # 🔁 Change every X minutes
 # Load the external icon image
-ICON_PATH = os.path.join("D:\\software\\script\\src", "icon.jpg")
+ICON_PATH = os.path.join(BASE_DIR,"icon.jpg")
 BASE_URL_DEFAULT = "https://alphacoders.com/popular"
 current_base_url = BASE_URL_DEFAULT
 # Ensure the icon file exists
